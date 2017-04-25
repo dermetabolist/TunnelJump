@@ -24,12 +24,11 @@ public class WallsSpawn : MonoBehaviour
     void SpawnAndDestroy()
     {
 
-        if (transform.position.y > 25)
+        if (transform.position.y > 25 && SpawnedTracks < 1)
         {
-            for (int i = 0; i < 1; i++)
-            {
-                Instantiate(NewTileset, new Vector3(0, transform.position.y - 200, 0), Quaternion.identity);
-            }
+            
+            Instantiate(NewTileset, new Vector3(0, transform.position.y - 200, 0), Quaternion.identity);
+            SpawnedTracks++;
         }
 
         if(transform.position.y > 250)
