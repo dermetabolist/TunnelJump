@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -35,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.Translate(Vector3.up * -speed);
             }
+        }
+        if(Input.GetKeyDown("r"))
+        {
+            StaticHolder.PlayerDied = false;
+            StaticHolder.ItemCounter = 0;
+            SceneManager.LoadScene("Scenes/gameScreen");
         }
         
     }

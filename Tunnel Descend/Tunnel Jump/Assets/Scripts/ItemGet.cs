@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ItemGet : MonoBehaviour {
 
+    private void Start()
+    {
+        GetComponent<MeshRenderer>().enabled = true;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            Destroy(gameObject);
+            GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
