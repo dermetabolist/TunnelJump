@@ -25,7 +25,7 @@ public class PlayerCollision : MonoBehaviour {
         }
         if (other.tag == "Item")
         {
-            StaticHolder.ItemCounter++;
+            StaticHolder.ItemCounter+=1;
             audio.pitch = 1;
             audio.PlayOneShot(ItemGet, 1f);
                
