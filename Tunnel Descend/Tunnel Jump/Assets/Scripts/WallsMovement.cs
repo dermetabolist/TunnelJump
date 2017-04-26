@@ -13,6 +13,13 @@ public class WallsMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        transform.Translate(Vector3.up * speed);
-	}
+        if(StaticHolder.PlayerDied == false)
+        {
+            transform.Translate(Vector3.up * speed);
+        }
+        else
+        {
+           
+        }
+    }
 }

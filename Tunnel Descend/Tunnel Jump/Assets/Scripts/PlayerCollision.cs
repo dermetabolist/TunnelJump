@@ -4,16 +4,36 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour {
 
-    public Transform Explosion;
+    public GameObject Explosion;
 
+    public AudioClip ItemGet;
+    public AudioSource audio;
+
+    private void Awake()
+    {
+        //Explosion.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Obstacle")
+        if (other.tag == "Obstacle")
         {
+            //Explosion.SetActive(true);
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             StaticHolder.PlayerDied = true;
-            Destroy(gameObject);
+            GetComponent<MeshRenderer>().enabled = false;
+        }
+        if (other.tag == "Item")
+        {
+            StaticHolder.ItemCounter++;
+            audio.pitch = 1;
+            audio.PlayOneShot(ItemGet, 1f);
+               
         }
     }
+        
+
+    
 }
+
+

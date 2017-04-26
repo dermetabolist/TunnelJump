@@ -17,21 +17,25 @@ public class PlayerMovement : MonoBehaviour
 
     void Controls()
     {
-        if(Input.GetAxis("Horizontal") < 0)
+        if(StaticHolder.PlayerDied == false)
         {
-            transform.Translate(Vector3.left * speed);
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                transform.Translate(Vector3.left * speed);
+            }
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                transform.Translate(Vector3.left * -speed);
+            }
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                transform.Translate(Vector3.up * speed);
+            }
+            if (Input.GetAxis("Vertical") < 0)
+            {
+                transform.Translate(Vector3.up * -speed);
+            }
         }
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            transform.Translate(Vector3.left * -speed);
-        }
-        if (Input.GetAxis("Vertical") > 0)
-        {
-            transform.Translate(Vector3.up * speed);
-        }
-        if (Input.GetAxis("Vertical") < 0)
-        {
-            transform.Translate(Vector3.up * -speed);
-        }
+        
     }
 }
